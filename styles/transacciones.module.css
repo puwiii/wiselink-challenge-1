@@ -1,0 +1,86 @@
+.formContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+
+    margin: 2rem;
+}
+
+.lista{
+    list-style:none;
+    padding: 0;
+}
+
+.transaccionContainer{
+    display: flex;
+    justify-content: space-between;
+    background-color: #141414;
+    margin-bottom: 2rem;
+    border-radius: 30px;
+    padding:1rem;
+    padding-right: 2rem;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.eliminarB, .editarB{
+    all:unset;
+    background-color:#9D4EDD;
+    border-radius: 100%;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+
+
+.eliminarB{
+    background-color: #d00000;
+}
+
+.editarB{
+    background-color: #4361ee;
+}
+
+
+.selectOption{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+@media (max-width: 1400px){
+    .formContainer{
+        display: block;
+    }
+    .selectOption{
+        display: block;
+
+    }
+
+}
+@media (max-width: 768px){
+    .header{
+
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .valorToal{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top:3rem;
+        font-size:2rem;
+        margin-bottom:2rem;
+    }    
+    .transaccionContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+

@@ -1,0 +1,110 @@
+
+
+.layoutContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 20px;
+}
+
+.container{
+    border-radius: 30px;
+    padding: 1.5rem;
+    box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47) inset;
+    -webkit-box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47) inset;
+    -moz-box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47) inset;
+    background-image: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
+}
+
+.container:hover{
+    box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47);
+-webkit-box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47);
+-moz-box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47);
+}
+
+.container a{
+    color: white;
+    text-decoration: none;
+    
+}
+.container a:visited{
+
+    text-decoration: none;
+
+}
+.nombre{
+    font-size:2rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.705);
+}
+
+.total{
+    display:flex;
+    align-items:center;
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 0;
+    margin-top:2rem;
+}
+
+.coinContainer{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+
+}
+.onlyCoinContainer{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+
+
+}
+
+.precio,
+.symbol{
+    font-size:1.5rem;
+    margin-left: 3px;
+}
+
+
+.agregarCartera{
+    border-radius: 30px;
+    border: 2px solid rgba(22, 22, 22, 0.644);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@media (max-width: 768px) {
+    .layoutContainer{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .fondo{
+        margin:3rem;
+        padding: 3rem;
+        height:65vh; 
+    }
+
+
+}
+
+@media (min-width:1400px){
+    .layoutContainer{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .coinContainer{
+        gap:2rem;
+    }
+    .precio,
+    .symbol{
+    font-size:2rem;
+    }
+
+}

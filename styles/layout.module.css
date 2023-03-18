@@ -1,0 +1,32 @@
+
+.container{
+    margin:1em;
+    margin-bottom:5em;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+
+.container a{
+    background: rgb(247,81,255);
+    background: linear-gradient(151deg, rgba(247,81,255,1) 20%, rgba(82,9,121,1) 56%, rgba(108,48,176,1) 100%); 
+    width: 100px;
+    height: 100px;
+    border-radius:100%;
+    padding: 5px;
+}
+
+.color {
+    color:white;
+}
+
+
+@media (max-width: 768px) {
+    .container{
+
+        margin-bottom:1em;
+
+    }
+}
