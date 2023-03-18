@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { WalletContext } from "../../context/walletProvider";
 import { useRouter } from "next/router";
-import SelectTipo from "../../../components/transaccionesComponents/selectTipo";
 import SelectOption from "../../../components/transaccionesComponents/selectOption"
 import InputCantidad from "../../../components/transaccionesComponents/inputCantidad";
 import FormData from "../../../components/transaccionesComponents/formData";
 import ListTransaccion from "../../../components/transaccionesComponents/listTransaccion";
 import Layout from "../../../components/layout/layout";
 import styles from "../../../styles/transacciones.module.css";
+import SelectTipo from "@/components/transaccionesComponents/selectTipo";
 
 function Transacciones({ data }) {
   const [selectedOption, setSelectedOption] = useState();

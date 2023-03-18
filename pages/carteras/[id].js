@@ -2,10 +2,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { WalletContext } from "../context/walletProvider";
 import { useRouter } from "next/router";
-import ActivosSection from "../../components/idComponents/activosSection";
-import ButtonSection from "../../components/idComponents/buttonSection";
+
 import Layout from "../../components/layout/layout";
 import styles from "../../styles/id.module.css"
+import ButtonSection from "@/components/idComponents/buttonSection";
+import ActivosSection from "@/components/idComponents/activosSection";
 
 const Hola = () => {
   const { carteras, eliminarCartera } = useContext(WalletContext);
