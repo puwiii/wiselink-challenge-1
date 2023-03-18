@@ -1,9 +1,11 @@
-import Layout from "../../components/layout/layout";
+
 import React, { useContext, useEffect, useState } from "react";
 import { WalletContext } from "../../context/walletProvider";
 import { useRouter } from "next/router";
 import ActivosSection from "../../components/idComponents/activosSection";
 import ButtonSection from "../../components/idComponents/buttonSection";
+import Layout from "../../components/layout/layout";
+import styles from "../../styles/id.module.css"
 
 const Hola = () => {
   const { carteras, eliminarCartera } = useContext(WalletContext);
@@ -65,13 +67,18 @@ const Hola = () => {
 
   return (
     <Layout>
-      <h2>{cartera.nombre}</h2>
-      {cartera.activos.length === 0 ? (
-        <p>Aun no tienes monedas agregadas</p>
-      ) : (
-        <ActivosSection activos={cartera.activos} total={total} />
-      )}
-      <ButtonSection handleClickEliminar={handleClickEliminar} handleEditar={handleEditar} id={cartera.id}/>
+      <div className="fondo">
+        <div className={styles.header}>
+          <h3 className={styles.nombre}>{cartera.nombre}</h3>
+          <ButtonSection handleClickEliminar={handleClickEliminar} handleEditar={handleEditar} id={cartera.id}/>
+        </div>
+        {cartera.activos.length === 0 ? (
+          <p>Aun no tienes monedas agregadas</p>
+        ) : (
+          <ActivosSection activos={cartera.activos} total={total} />
+        )}
+
+      </div>
     </Layout>
   );
 };

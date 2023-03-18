@@ -1,8 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
-import Layout from "../../../components/layout/layout";
+import React, { useContext, useState } from "react";
 import { WalletContext } from "../../../context/walletProvider";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import SelectTipo from "../../../components/transaccionesComponents/selectTipo";
+import SelectOption from "../../../components/transaccionesComponents/selectOption"
+import InputCantidad from "../../../components/transaccionesComponents/inputCantidad";
+import FormData from "../../../components/transaccionesComponents/formData";
+import ListTransaccion from "../../../components/transaccionesComponents/listTransaccion";
+import Layout from "../../../components/layout/layout";
+import styles from "../../../styles/transacciones.module.css";
 
 function Transacciones({ data }) {
   const [selectedOption, setSelectedOption] = useState();
@@ -64,6 +69,18 @@ function Transacciones({ data }) {
     setEditar(true);
   };
 
+ const handleEliminar = (id) =>{
+
+    const confirmacion = window.confirm(
+      `¿Estás seguro de que quieres eliminar la cartera "${cartera.nombre}"?`
+    );
+    if (confirmacion) {
+      eliminarTransaccion(idToUpdate, id)
+    }
+  };
+
+ 
+
   const handleClick = (e) => {
     e.preventDefault();
 
@@ -118,123 +135,31 @@ function Transacciones({ data }) {
 
   return (
     <Layout>
-      <form>
-        <label htmlFor="tipo">Tipo de transacción:</label>
-        <select id="tipo" value={tipo} onChange={handleTipoChange}>
-          <option value="">-- Seleccione una opción --</option>
-          <option value="compra">Compra</option>
-          <option value="venta">Venta</option>
-        </select>
+      <div className="fondo">
 
-        <>
-          <label htmlFor="options">Seleccionar opción:</label>
-          <select id="options" onChange={handleOptionChange}>
-            <option value="">-- Seleccione una opción --</option>
-            {data.map((option) => {
-              if (tipo === "venta") {
-                if (activos.some((activo) => activo.id === option.id)) {
-                  return (
-                    <option key={option.id} value={option.name}>
-                      {option.name}
-                    </option>
-                  );
-                } else {
-                  return null;
-                }
-              } else {
-                return (
-                  <option key={option.id} value={option.name}>
-                    {option.name}
-                  </option>
-                );
-              }
-            })}
-          </select>
-          <div>
-            <label htmlFor="myInput">Introduzca un valor:</label>
-            <input
-              type="float"
-              id="myInput"
-              value={cantidad}
-              onChange={(e) => setCantidad(e.target.value)}
-            />
-            <p>El valor introducido es: {cantidad}</p>
+          <div className={styles.formContainer}>
+            <SelectTipo  tipo={tipo} handleTipoChange={handleTipoChange}/>
+            <SelectOption className={styles.select} data={data} tipo={tipo} activos={activos} handleOptionChange={handleOptionChange} selectedOption={selectedOption}/>
+            <InputCantidad className={styles.input} cantidad={cantidad} setCantidad={setCantidad}/>
           </div>
-        </>
 
-        {selectedOption ? (
-          <>
-            <p>La moneda seleccionada seleccionada es: {selectedOption.name}</p>
-            <p>Su valor es: {selectedOption.current_price}</p>
 
-            <Image
-              src={selectedOption.image}
-              width={30}
-              height={30}
-              alt="Imagen de la moneda"
-            />
-            <p>
-              El precio total es: ${selectedOption.current_price * cantidad}{" "}
-            </p>
-            <div>
-              <label>
-                Ingresa una fecha:
-                <input
-                  type="date"
-                  value={fecha}
-                  onChange={(e) => setFecha(e.target.value)}
-                />
-              </label>
-              <p>La fecha ingresada es: {fecha}</p>
-            </div>
-            <button type="button" onClick={handleClick}>
-              {editar ? "EDITAR" : "AGREGAR"}
-            </button>
-          </>
+          {selectedOption ? (
+          <FormData selectedOption={selectedOption} cantidad={cantidad} fecha={fecha} setFecha={setFecha} handleClick={handleClick} editar={editar}/>
+          ) : (
+            <>
+              <p>Seleccione una moneda</p>
+            </>
+          )}
+
+
+        {cartera?.transacciones?.length > 0 ? (
+          <ListTransaccion cartera={cartera} handleEditar={handleEditar} handleEliminar={handleEliminar}/>
         ) : (
-          <>
-            <h1>Hola</h1>
-          </>
+          <p>No hay transacciones en esta cartera.</p>
         )}
-      </form>
 
-      {cartera?.transacciones?.length > 0 ? (
-        <div>
-          <ol>
-            {cartera.transacciones.reverse().map((transaccion) => (
-              <li key={transaccion.idT}>
-                <div>
-                  <Image
-                    src={transaccion.image}
-                    height={100}
-                    width={100}
-                    alt={transaccion.name}
-                  />
-                  <div>
-                    <h3>{transaccion.name}</h3>
-                    <p>fecha: {transaccion.fecha}</p>
-                    <p>Cantidad: {transaccion.cantidad}</p>
-                    <p>Precio: {transaccion.precio}</p>
-                    <p>Tipo: {transaccion.tipo}</p>
-                    <button
-                      onClick={() =>
-                        eliminarTransaccion(idToUpdate, transaccion.idT)
-                      }
-                    >
-                      Eliminar
-                    </button>
-                    <button onClick={() => handleEditar(transaccion)}>
-                      editar
-                    </button>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      ) : (
-        <p>No hay transacciones en esta cartera.</p>
-      )}
+      </div>
     </Layout>
   );
 }
