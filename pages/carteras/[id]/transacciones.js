@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { WalletContext } from "../../context/walletProvider";
 import { useRouter } from "next/router";
-import SelectOption from "../../../components/transaccionesComponents/selectOption"
+import SelectOption from "../../../components/transaccionesComponents/selectOption";
 import InputCantidad from "../../../components/transaccionesComponents/inputCantidad";
 import FormData from "../../../components/transaccionesComponents/formData";
 import ListTransaccion from "../../../components/transaccionesComponents/listTransaccion";
@@ -17,7 +17,7 @@ function Transacciones({ data }) {
   const [editar, setEditar] = useState(false);
   const [idTransaccion, setIdtransaccion] = useState(null);
 
-  console.log(selectedOption)
+  console.log(selectedOption);
 
   const router = useRouter();
   const idToUpdate = parseInt(router.query.id);
@@ -69,17 +69,14 @@ function Transacciones({ data }) {
     setEditar(true);
   };
 
- const handleEliminar = (id) =>{
-
+  const handleEliminar = (id) => {
     const confirmacion = window.confirm(
       `¿Estás seguro de que quieres eliminar la cartera "${cartera.nombre}"?`
     );
     if (confirmacion) {
-      eliminarTransaccion(idToUpdate, id)
+      eliminarTransaccion(idToUpdate, id);
     }
   };
-
- 
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -112,10 +109,8 @@ function Transacciones({ data }) {
       } else {
         updatedOption.idT = undefined;
         if (updatedOption.tipo === "compra") {
-
           editarCartera(idToUpdate, updatedOption);
         } else if (updatedOption.tipo === "venta") {
-
           const activoSeleccionado = cartera.activos.find(
             (activo) => activo.id === selectedOption.id
           );
@@ -124,7 +119,6 @@ function Transacciones({ data }) {
               "La cantidad introducida es mayor que la cantidad actual del activo"
             );
           } else {
-
             editarCartera(idToUpdate, updatedOption);
           }
         }
@@ -132,33 +126,57 @@ function Transacciones({ data }) {
     }
   };
 
-
   return (
     <Layout>
       <div className="fondo">
+        <div className={styles.formContainer}>
+          <>
+            <label htmlFor="tipo">Tipo de transacción:</label>
+            <select id="tipo" value={tipo} onChange={handleTipoChange}>
+              <option value="">-- Seleccione una opción --</option>
+              <option value="compra">Compra</option>
+              <option value="venta">Venta</option>
+            </select>
+          </>
+          <SelectOption
+            className={styles.select}
+            data={data}
+            tipo={tipo}
+            activos={activos}
+            handleOptionChange={handleOptionChange}
+            selectedOption={selectedOption}
+          />
+          <InputCantidad
+            className={styles.input}
+            cantidad={cantidad}
+            setCantidad={setCantidad}
+          />
+        </div>
 
-          <div className={styles.formContainer}>
-            <SelectTipo  tipo={tipo} handleTipoChange={handleTipoChange}/>
-            <SelectOption className={styles.select} data={data} tipo={tipo} activos={activos} handleOptionChange={handleOptionChange} selectedOption={selectedOption}/>
-            <InputCantidad className={styles.input} cantidad={cantidad} setCantidad={setCantidad}/>
-          </div>
-
-
-          {selectedOption ? (
-          <FormData selectedOption={selectedOption} cantidad={cantidad} fecha={fecha} setFecha={setFecha} handleClick={handleClick} editar={editar}/>
-          ) : (
-            <>
-              <p>Seleccione una moneda</p>
-            </>
-          )}
-
+        {selectedOption ? (
+          <FormData
+            selectedOption={selectedOption}
+            cantidad={cantidad}
+            fecha={fecha}
+            setFecha={setFecha}
+            handleClick={handleClick}
+            editar={editar}
+          />
+        ) : (
+          <>
+            <p>Seleccione una moneda</p>
+          </>
+        )}
 
         {cartera?.transacciones?.length > 0 ? (
-          <ListTransaccion cartera={cartera} handleEditar={handleEditar} handleEliminar={handleEliminar}/>
+          <ListTransaccion
+            cartera={cartera}
+            handleEditar={handleEditar}
+            handleEliminar={handleEliminar}
+          />
         ) : (
           <p>No hay transacciones en esta cartera.</p>
         )}
-
       </div>
     </Layout>
   );
