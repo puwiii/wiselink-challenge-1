@@ -7,7 +7,7 @@ import ButtonSection from "../../components/idComponents/buttonSection";
 import Layout from "../../components/layout/layout";
 import styles from "../../styles/id.module.css"
 
-const Hola = () => {
+const IdPage = () => {
   const { carteras, eliminarCartera } = useContext(WalletContext);
 
   const [total, setTotal] = useState();
@@ -83,4 +83,4 @@ const Hola = () => {
   );
 };
 
-export default Hola;
+export default IdPage;
