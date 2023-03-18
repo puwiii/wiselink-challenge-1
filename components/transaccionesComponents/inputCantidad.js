@@ -1,4 +1,4 @@
-import styles from "../../styles/transacciones.module.css";
+
 
 function InputCantidad({ cantidad, setCantidad }) {
     return (

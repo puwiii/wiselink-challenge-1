@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { WalletContext } from "../pages/context/walletProvider";
+import { WalletContext } from "../context/walletProvider";
 
 export const getDataFromContext = () => {
   const {carteras} = useContext(WalletContext);

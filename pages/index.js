@@ -2,7 +2,7 @@
 import Cartera from '../components/cartera'
 
 import { useContext } from "react";
-import {WalletContext} from "./context/walletProvider";
+import {WalletContext} from "../context/walletProvider";
 
 import NewWalletLink from '../components/newWalletLink';
 import Layout from '../components/layout/layout';

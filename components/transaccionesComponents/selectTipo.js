@@ -1,8 +1,8 @@
 
-function SelectTipo({ tipo, handleTipoChange }) {
-  return (
+// function SelectTipo({ tipo, handleTipoChange }) {
+//   return (
     
-  );
-}
+//   );
+// }
 
-export default SelectTipo;
+// export default SelectTipo;

@@ -2,7 +2,7 @@
 import '../styles/globals.css'
 
 import '../styles/globals.css';
-import { WalletProvider } from "../pages/context/walletProvider";
+import { WalletProvider } from "../context/walletProvider";
 
 
 function App({ Component, pageProps }) {

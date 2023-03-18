@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Layout from "../components/layout/layout";
 import FormWallet from "../components/newWalletComponents/formWallet";
 
-import { WalletContext } from "./context/walletProvider";
+import { WalletContext } from "../context/walletProvider";
 import styles from "../styles/newwallet.module.css"
 
 const Newwallet = () => {

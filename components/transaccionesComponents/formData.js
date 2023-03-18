@@ -1,5 +1,5 @@
 import Image from "next/image"
-import styles from "../../styles/transacciones.module.css"
+
 
 const FormData = ({selectedOption, cantidad, fecha, setFecha, handleClick, editar}) => {
   return (
