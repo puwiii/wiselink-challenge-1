@@ -1,4 +1,4 @@
-import Layout from "../../components/layout";
+import Layout from "../../components/layout/layout";
 import React, { useContext, useEffect, useState } from "react";
 import { WalletContext } from "../../context/walletProvider";
 import { useRouter } from "next/router";

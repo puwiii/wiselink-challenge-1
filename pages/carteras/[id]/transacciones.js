@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import Layout from "../../../components/layout";
+import Layout from "../../../components/layout/layout";
 import { WalletContext } from "../../../context/walletProvider";
 import { useRouter } from "next/router";
 import Image from "next/image";
