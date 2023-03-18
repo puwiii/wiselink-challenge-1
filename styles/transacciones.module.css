@@ -27,10 +27,10 @@
 
 .eliminarB, .editarB{
     all:unset;
-    background-color:#9D4EDD;
     border-radius: 100%;
     text-transform: uppercase;
     padding: 10px;
+    
 }
 
 
@@ -41,6 +41,11 @@
 
 .editarB{
     background-color: #4361ee;
+}
+
+.eliminarB:hover, .editarB:hover{
+    cursor: pointer;
+    box-shadow: 1px 10px 36px 5px rgba(0, 0, 0, 0.466)
 }
 
 

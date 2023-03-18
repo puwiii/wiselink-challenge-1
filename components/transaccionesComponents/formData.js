@@ -9,8 +9,8 @@ const FormData = ({selectedOption, cantidad, fecha, setFecha, handleClick, edita
 
     <Image
       src={selectedOption.image}
-      width={30}
-      height={30}
+      width={60}
+      height={60}
       alt="Imagen de la moneda"
     />
     <p>

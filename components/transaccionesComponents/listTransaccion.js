@@ -11,7 +11,7 @@ const ListTransaccion = ({cartera, handleEditar, handleEliminar}) => {
               <Image
                 src={transaccion.image}
                 height={60}
-                width={60}
+                width={70}
                 alt={transaccion.name}
               />
                 <h3>{transaccion.name}</h3>
@@ -20,10 +20,10 @@ const ListTransaccion = ({cartera, handleEditar, handleEliminar}) => {
                 <p>{transaccion.precio}</p>
                 <p>{transaccion.tipo}</p>
                 <button className={styles.eliminarB} onClick={() => handleEliminar(transaccion.idT)}>
-                  <Image src="/img/trash-x-filled.svg" width={40} height={40}/>
+                  <Image src="/img/trash-x-filled.svg" width={50} height={40}/>
                 </button>
                 <button className={styles.editarB} onClick={() => handleEditar(transaccion)}>
-                  <Image src="/img/pencil.svg" width={40} height={40}/>
+                  <Image src="/img/pencil.svg" width={50} height={40}/>
                 </button>
             </div>
           </li>
