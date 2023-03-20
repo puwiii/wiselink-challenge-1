@@ -1,0 +1,16 @@
+.error{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.errorName{
+    font-size:3rem;
+}
+
+@media (max-width: 768px){
+    .error{
+        flex-direction:column;
+    }
+}

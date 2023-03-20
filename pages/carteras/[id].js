@@ -6,6 +6,7 @@ import ActivosSection from "../../components/idComponents/activosSection";
 import ButtonSection from "../../components/idComponents/buttonSection";
 import Layout from "../../components/layout/layout";
 import styles from "../../styles/id.module.css"
+import Error404 from "@/components/404";
 
 const IdPage = () => {
   const { carteras, eliminarCartera } = useContext(WalletContext);
@@ -19,7 +20,7 @@ const IdPage = () => {
     const id = parseInt(router.query.id);
 
     if (id) {
-      console.log(id);
+      (id);
       const filteredCartera = carteras.find((item) => item.id === id);
 
       setCartera(filteredCartera);
@@ -62,7 +63,7 @@ const IdPage = () => {
   };
 
   if (!cartera) {
-    return <Layout>No se encontro la carter</Layout>;
+    return <Error404></Error404>;
   }
 
   return (

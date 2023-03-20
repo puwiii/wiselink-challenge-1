@@ -52,7 +52,7 @@ const Newwallet = () => {
       editarNombreCartera(Number(id), nombre);
     } else {
       agregarCartera(nuevaCartera);
-      console.log(nuevaCartera);
+      (nuevaCartera);
       setNombre("");
       setError("");
     }

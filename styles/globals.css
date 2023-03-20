@@ -12,15 +12,29 @@ html {
 }
 
 .fondo {
-  margin:5rem;
+
   padding: 3rem;
   height:65vh;
-  background-color: #240046;
+  width: 50%;
+  margin: auto;
+  background-color: #10002B;
   border-radius: 30px;
   overflow-y: auto;
 }
 .fondo::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 768px) {
+
+  .fondo{
+      margin:auto;
+      padding: 3rem;
+      width: 80vw;
+      height:65vh; 
+  }
+
+
 }
 
 body {
@@ -30,7 +44,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  background-color:#10002b;
+  background-color:#000000;
   color: white;
 }
 img {

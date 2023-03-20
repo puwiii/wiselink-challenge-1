@@ -14,7 +14,9 @@ const FormWallet = ({ nombre, handleNombreChange, handleSubmit, error, modoEdita
         />
       </div>
       {error && <div className={styles.error}>{error}</div>}
-      <button  className={styles.button}type="submit">{modoEditar ? "Guardar" : "Agregar"}</button>
+      <div className={styles.buttonContainer}>
+        <button  className={styles.button}type="submit">{modoEditar ? "Guardar" : "Agregar"}</button>
+      </div>
     </form>
   );
 };

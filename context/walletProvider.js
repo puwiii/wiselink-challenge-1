@@ -133,7 +133,7 @@ export const WalletProvider = ({ children }) => {
             transaccionExistente.tipo
 
           );
-          console.log(activosActualizados)
+          (activosActualizados)
           return {
             ...cartera,
             activos: activosActualizados,
@@ -178,7 +178,7 @@ export const WalletProvider = ({ children }) => {
     const carteraIndex = carteras.findIndex((c) => c.id === carteraId);
   
     if (carteraIndex === -1) {
-      console.log(`No se encontró la cartera con id ${carteraId}`);
+      (`No se encontró la cartera con id ${carteraId}`);
       return;
     }
   
@@ -188,7 +188,7 @@ export const WalletProvider = ({ children }) => {
     );
   
     if (transaccionIndex === -1) {
-      console.log(
+      (
         `No se encontró la transacción con id ${idT} en la cartera con id ${carteraId}`
       );
       return;
@@ -200,7 +200,7 @@ export const WalletProvider = ({ children }) => {
     );
   
     if (activoIndex === -1) {
-      console.log(
+      (
         `No se encontró el activo con id ${transaccion.id} en la cartera con id ${carteraId}`
       );
       return;
@@ -216,21 +216,17 @@ export const WalletProvider = ({ children }) => {
   
     if (activo.cantidad === 0) {
       cartera.activos.splice(activoIndex, 1);
-      console.log(
-        `Activo con id ${activo.id} eliminado de la cartera con id ${carteraId}`
-      );
+
     }
   
     cartera.transacciones.splice(transaccionIndex, 1);
-    console.log(
-      `Transacción con id ${idT} eliminada de la cartera con id ${carteraId}`
-    );
+
   
     carteras[carteraIndex] = cartera;
     localStorage.setItem('carteras', JSON.stringify(carteras));
   }
 
-  console.log(carteras)
+  (carteras)
   
 
   return paginaLista ? (

@@ -1,4 +1,7 @@
-
+.link{
+    text-decoration: none;
+    color: white;
+}
 
 .layoutContainer{
     display: grid;
@@ -7,16 +10,22 @@
     gap: 20px;
 }
 
+
 .container{
     border-radius: 30px;
     padding: 1.5rem;
-    box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47) inset;
-    -webkit-box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47) inset;
-    -moz-box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47) inset;
-    background-image: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
+    display: flex;
+    gap: 4rem;
+    height: 15rem;
+    align-items: center;
+    justify-content: space-between;
+     background-image: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% ); 
 }
 
+
 .container:hover{
+    transition: box-shadow 0.5s;
+
     box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47);
 -webkit-box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47);
 -moz-box-shadow: 1px 9px 32px 2px rgba(0,0,0,0.47);
@@ -40,6 +49,7 @@
     color: rgba(255, 255, 255, 0.705);
 }
 
+
 .total{
     display:flex;
     align-items:center;
@@ -53,23 +63,27 @@
     display: flex;
     align-items:center;
     justify-content:center;
-    margin-bottom: 2rem;
-    gap: 1rem;
+    flex-direction: column;
+    gap: .5rem;
 
+
+}
+.titleCoinainer{
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight:400;
 }
 .onlyCoinContainer{
     display: flex;
     align-items:center;
     justify-content:center;
-
-
-}
-
-.precio,
-.symbol{
-    font-size:1.5rem;
+    font-size: 0.75em;
     margin-left: 3px;
+    color: rgba(255, 255, 255, 0.726);
+    text-transform: uppercase;
 }
+
+
 
 
 .agregarCartera{
@@ -82,29 +96,29 @@
 
 }
 
-@media (max-width: 768px) {
+@media (max-width:1600px){
     .layoutContainer{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .fondo{
-        margin:3rem;
-        padding: 3rem;
-        height:65vh; 
-    }
-
-
-}
-
-@media (min-width:1400px){
-    .layoutContainer{
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     .coinContainer{
         gap:2rem;
     }
-    .precio,
-    .symbol{
-    font-size:2rem;
+
+
+}
+@media (max-width:1200px){
+    .layoutContainer{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .coinContainer{
+        gap:2rem;
+    }
+
+
+}
+@media (max-width: 768px) {
+    .layoutContainer{
+        grid-template-columns: repeat(1, 1fr);
     }
 
 }

@@ -17,7 +17,7 @@ function Transacciones({ data }) {
   const [editar, setEditar] = useState(false);
   const [idTransaccion, setIdtransaccion] = useState(null);
 
-  console.log(selectedOption)
+  (selectedOption)
 
   const router = useRouter();
   const idToUpdate = parseInt(router.query.id);
@@ -144,7 +144,7 @@ function Transacciones({ data }) {
           </div>
 
 
-          {selectedOption ? (
+          {cantidad ? (
           <FormData selectedOption={selectedOption} cantidad={cantidad} fecha={fecha} setFecha={setFecha} handleClick={handleClick} editar={editar}/>
           ) : (
             <>
