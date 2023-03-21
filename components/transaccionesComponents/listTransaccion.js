@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "../../styles/transacciones.module.css"
 
 const ListTransaccion = ({cartera, handleEditar, handleEliminar}) => {
+  
   return (
     <div>
       <ul className={styles.lista}>
@@ -20,10 +21,10 @@ const ListTransaccion = ({cartera, handleEditar, handleEliminar}) => {
                 <p>{transaccion.precio}</p>
                 <p>{transaccion.tipo}</p>
                 <button className={styles.eliminarB} onClick={() => handleEliminar(transaccion.idT)}>
-                  <Image src="/img/trash-x-filled.svg" width={50} height={40}/>
+                  <Image src="/img/trash-x-filled.svg" alt="eliminar" width={50} height={40}/>
                 </button>
                 <button className={styles.editarB} onClick={() => handleEditar(transaccion)}>
-                  <Image src="/img/pencil.svg" width={50} height={40}/>
+                  <Image src="/img/pencil.svg" alt="editar" width={50} height={40}/>
                 </button>
             </div>
           </li>

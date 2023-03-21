@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import { useRouter } from "next/router";
 
 export const WalletContext = React.createContext();
 
@@ -10,6 +11,8 @@ export const WalletProvider = ({ children }) => {
       : [];
   const [carteras, setCarteras] = useState(carterasLS);
   const [paginaLista, setPaginaLista] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     setPaginaLista(true);
@@ -54,6 +57,8 @@ export const WalletProvider = ({ children }) => {
     const carterasActualizado = carteras.filter((cartera) => cartera.id !== id);
     setCarteras(carterasActualizado);
     localStorage.setItem("carteras", JSON.stringify(carterasActualizado));
+    router.push("/");
+
   };
 
 
@@ -174,6 +179,8 @@ export const WalletProvider = ({ children }) => {
     localStorage.setItem("carteras", JSON.stringify(carterasActualizado));
   };
 
+  
+  console.log(carteras)
   function eliminarTransaccion(carteraId, idT) {
     const carteraIndex = carteras.findIndex((c) => c.id === carteraId);
   
@@ -188,9 +195,6 @@ export const WalletProvider = ({ children }) => {
     );
   
     if (transaccionIndex === -1) {
-      (
-        `No se encontró la transacción con id ${idT} en la cartera con id ${carteraId}`
-      );
       return;
     }
   
@@ -200,9 +204,6 @@ export const WalletProvider = ({ children }) => {
     );
   
     if (activoIndex === -1) {
-      (
-        `No se encontró el activo con id ${transaccion.id} en la cartera con id ${carteraId}`
-      );
       return;
     }
   
@@ -216,17 +217,19 @@ export const WalletProvider = ({ children }) => {
   
     if (activo.cantidad === 0) {
       cartera.activos.splice(activoIndex, 1);
-
     }
   
     cartera.transacciones.splice(transaccionIndex, 1);
-
   
-    carteras[carteraIndex] = cartera;
-    localStorage.setItem('carteras', JSON.stringify(carteras));
+    const newCarteras = [...carteras];
+    newCarteras[carteraIndex] = cartera;
+    localStorage.setItem('carteras', JSON.stringify(newCarteras));
+    
+    // Actualizamos el estado con la nueva cartera actualizada
+    setCarteras(newCarteras);
   }
 
-  (carteras)
+
   
 
   return paginaLista ? (

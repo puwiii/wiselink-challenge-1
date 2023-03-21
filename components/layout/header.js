@@ -8,7 +8,7 @@ const Header = () => {
     <header >
         <div className={styles.container}>
           <Link href="/">
-            <Image className={styles.image} src="/img/wallet.svg" width="100" height="100"/>
+            <Image className={styles.image} src="/img/wallet.svg" alt="wallet" width="100" height="100"/>
           </Link>
         </div>
     </header>

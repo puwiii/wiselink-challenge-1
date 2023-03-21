@@ -5,7 +5,7 @@ import styles from "../styles/index.module.css"
 const NewWalletLink = () => {
   return (
     <Link className={styles.agregarCartera} href="/newWallet">
-      <Image src="/img/circle-plus.svg" width="100" height="100"/>
+      <Image alt="circle" src="/img/circle-plus.svg" width="100" height="100"/>
     </Link>
   )
 }

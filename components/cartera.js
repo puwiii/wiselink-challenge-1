@@ -34,7 +34,7 @@ const Cartera = ({ cartera }) => {
         <h3 className={styles.titleCoinainer}>Top Coins</h3>
       {activosFiltrados.map((activo) => (
           <div className={styles.onlyCoinContainer}>
-            <Image className={styles.image} src={activo.image} width={30} height={30} />
+            <Image className={styles.image} alt={activo.nombre} src={activo.image} width={30} height={30} />
             <span className={styles.symbol}>{activo.symbol}</span>
             <span className={styles.precio}>{activo.cantidad}</span>
           </div>

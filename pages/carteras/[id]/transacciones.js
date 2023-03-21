@@ -17,15 +17,15 @@ function Transacciones({ data }) {
   const [editar, setEditar] = useState(false);
   const [idTransaccion, setIdtransaccion] = useState(null);
 
-  (selectedOption)
-
   const router = useRouter();
   const idToUpdate = parseInt(router.query.id);
 
   const { carteras, editarCartera, eliminarTransaccion } =
-    useContext(WalletContext);
+  useContext(WalletContext);
   const cartera = carteras.find((c) => c.id === idToUpdate);
   const activos = cartera ? cartera.activos : [];
+
+
 
   const handleOptionChange = (event) => {
     const selectedOptionName = event.target.value;
@@ -145,7 +145,7 @@ function Transacciones({ data }) {
 
 
           {cantidad ? (
-          <FormData selectedOption={selectedOption} cantidad={cantidad} fecha={fecha} setFecha={setFecha} handleClick={handleClick} editar={editar}/>
+          <FormData selectedOption={selectedOption} cantidad={cantidad} fecha={fecha} setFecha={setFecha} handleClick={handleClick} tipo={tipo} editar={editar}/>
           ) : (
             <>
               <p>Seleccione una moneda</p>
@@ -174,7 +174,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      data,
+      data
     },
   };
 }

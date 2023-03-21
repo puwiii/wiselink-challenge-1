@@ -7,7 +7,7 @@ const Error404 = () => {
   return (
     <Layout>
     <div className={`fondo ${styles.error}`}>
-        <Image src="/img/404Error.svg" width="400" height="400"></Image>
+        <Image alt='error gatito' src="/img/404Error.svg" width="400" height="400"></Image>
         <p className={styles.errorName}>Pagina no encontrada Lo sentimos :c</p>
     </div>
     </Layout>

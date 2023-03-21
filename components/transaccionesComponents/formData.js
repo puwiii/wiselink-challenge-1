@@ -9,6 +9,7 @@ const FormData = ({
   setFecha,
   handleClick,
   editar,
+  tipo
 }) => {
   return (
     <div className={styles.dataContainer}>
@@ -23,7 +24,7 @@ const FormData = ({
           />
       </div>
       <div className={styles.valorCoin}>
-      <p >Su valor unitario es: ${selectedOption.current_price}</p>
+      <p >Su valor unitario es: {selectedOption.current_price}</p>
 
       </div>
       <div>
@@ -43,7 +44,7 @@ const FormData = ({
       </div>
       <div className={styles.buttonContainer}>
         <button className={styles.button} type="button" onClick={handleClick}>
-          {editar ? "EDITAR" : "AGREGAR"}
+          {editar ? "EDITAR" : tipo == 'compra' ? "compra" : 'venta'}
         </button>
 
       </div>
